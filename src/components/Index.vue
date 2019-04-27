@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Sreach></Sreach>
+    <Search></Search>
     <HomeNav></HomeNav>
     <!-- 商品显示区域 -->
     <div class="content">
@@ -120,14 +120,12 @@
         </div>
       </div>
     </div>
-    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Sreach from '@/components/Sreach';
+import Search from '@/components/Search';
 import HomeNav from '@/components/nav/HomeNav';
-import Footer from '@/components/footer/Footer';
 import store from '@/vuex/store';
 import { mapState, mapActions, mapGetters, mapMutations } from 'vuex';
 export default {
@@ -159,9 +157,8 @@ export default {
     ...mapGetters([ 'seckillsHours', 'seckillsMinutes', 'seckillsSeconds' ])
   },
   components: {
-    Sreach,
-    HomeNav,
-    Footer
+    Search,
+    HomeNav
   },
   destroyed () {
     clearInterval(this.setIntervalObj);

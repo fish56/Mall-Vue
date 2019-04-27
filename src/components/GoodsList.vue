@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Sreach></Sreach>
+    <Search></Search>
     <GoodsListNav></GoodsListNav>
     <div class="container">
       <div class="bread-crumb">
@@ -9,7 +9,7 @@
             <Icon type="ios-home-outline"></Icon> 首页
           </BreadcrumbItem>
           <BreadcrumbItem to="/goodsList?sreachData=">
-            <Icon type="bag"></Icon> {{sreachItem}}
+            <Icon type="bag"></Icon> {{searchItem}}
           </BreadcrumbItem>
         </Breadcrumb>
       </div>
@@ -74,16 +74,14 @@
         <Page :total="100" show-sizer></Page>
       </div>
     </div>
-    <Footer></Footer>
     <Spin size="large" fix v-if="isLoading"></Spin>
   </div>
 </template>
 
 <script>
-import Sreach from '@/components/Sreach';
+import Search from '@/components/Search';
 import GoodsListNav from '@/components/nav/GoodsListNav';
 import GoodsClassNav from '@/components/nav/GoodsClassNav';
-import Footer from '@/components/footer/Footer';
 import store from '@/vuex/store';
 import { mapState, mapActions, mapGetters, mapMutations } from 'vuex';
 export default {
@@ -94,7 +92,7 @@ export default {
   },
   data () {
     return {
-      sreachItem: '',
+      searchItem: '',
       isAction: [ true, false, false ],
       icon: [ 'arrow-up-a', 'arrow-down-a', 'arrow-down-a' ],
       goodsTool: [
@@ -124,13 +122,12 @@ export default {
     this.loadGoodsList();
   },
   mounted () {
-    this.sreachItem = this.$route.query.sreachData;
+    this.searchItem = this.$route.query.sreachData;
   },
   components: {
-    Sreach,
+    Search,
     GoodsListNav,
-    GoodsClassNav,
-    Footer
+    GoodsClassNav
   },
   store
 };

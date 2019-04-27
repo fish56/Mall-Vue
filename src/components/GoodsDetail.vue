@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Sreach></Sreach>
+    <Search></Search>
     <ShopHeader></ShopHeader>
     <GoodsDetailNav></GoodsDetailNav>
     <div class="shop-item-path">
@@ -16,16 +16,14 @@
     <ShowGoods></ShowGoods>
     <!-- 商品详细展示 -->
     <ShowGoodsDetail></ShowGoodsDetail>
-    <Footer></Footer>
     <Spin size="large" fix v-if="isLoading"></Spin>
   </div>
 </template>
 
 <script>
-import Sreach from '@/components/Sreach';
+import Search from '@/components/Search';
 import GoodsDetailNav from '@/components/nav/GoodsDetailNav';
 import ShopHeader from '@/components/header/ShopHeader';
-import Footer from '@/components/footer/Footer';
 import ShowGoods from '@/components/goodsDetail/ShowGoods';
 import ShowGoodsDetail from '@/components/goodsDetail/ShowGoodsDetail';
 import store from '@/vuex/store';
@@ -51,12 +49,11 @@ export default {
     ...mapState(['goodsInfo', 'isLoading'])
   },
   components: {
-    Sreach,
+    Search,
     ShopHeader,
     GoodsDetailNav,
     ShowGoods,
-    ShowGoodsDetail,
-    Footer
+    ShowGoodsDetail
   },
   store
 };
